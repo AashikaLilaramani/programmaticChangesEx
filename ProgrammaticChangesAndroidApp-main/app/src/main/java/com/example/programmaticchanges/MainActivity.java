@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     // variables for the whole activity
     // includes references to all the XML components I will use
-    int clickCount;
+    int clickCountBg, clickCountIm;
     TextView labelTV;
     ConstraintLayout myLayout;
     ImageView starImage;
@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        clickCount = 0;
+        clickCountBg = 0;
+        clickCountIm = 0;
 
         // instantiating the XML components so they are ready to use in all methods
         labelTV = findViewById(R.id.textView);
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void oneMethod(View v) {
-        clickCount++;
         String buttonName = "none";
 
         /*
@@ -56,16 +56,17 @@ public class MainActivity extends AppCompatActivity {
                 buttonName = "otherButton";
                 break;
         }
-        Log.i("Denna", "Clicked on: " + buttonName + " and clickCount is: " + clickCount);
+        Log.i("Denna", "Clicked on: " + buttonName + " and clickCountBg is: " + clickCountBg);
 
         if (buttonName.equals("colorButton")) {
-            if (clickCount % 2 == 0) {
+            clickCountBg++;
+            if (clickCountBg % 2 == 0) {
                 labelTV.setText(R.string.tealText);
                // myLayout.setBackgroundColor(R.color.teal_200);
                 myLayout.setBackgroundColor(getResources().getColor(R.color.teal_200));
             } else {
-                labelTV.setText(R.string.yellowText);
-                myLayout.setBackgroundColor(getResources().getColor(R.color.yellow));
+                labelTV.setText(R.string.purpleText);
+                myLayout.setBackgroundColor(getResources().getColor(R.color.newpurple));
             }
         } else if (buttonName.equals("otherButton")) {
 
@@ -73,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
             toggle visibility of an element on the screen
             https://stackoverflow.com/questions/6445726/imageview-visibility-in-android
              */
-
-            if (clickCount % 2 == 0) {
+            clickCountIm++;
+            if (clickCountIm % 2 == 0) {
                 starImage.setVisibility(View.VISIBLE);
             }
             else {
